@@ -5,7 +5,9 @@
     </div>
     <div class="header-input">
       <span class='iconfont'>&#xe67d;</span>请输入城市/经典/主题选择</div>
-    <div class="header-right">城市<span class='iconfont icon3'>&#xe688;</span></div>
+    <router-link to='/city'>
+     <div class="header-right">城市<span class='iconfont icon3'>&#xe688;</span></div>
+    </router-link>
   </div>
 </template>
 <script>
@@ -21,8 +23,8 @@ export default {
 @import '~style/varibles.styl';
 .header {
   display: flex;
-  height: 0.86rem;
-  line-height: 0.86rem;
+  height: $headerHeight;
+  line-height: $headerHeight;
   background: $bgColor;
   color: #fff;
   text-align: center;
@@ -46,6 +48,7 @@ export default {
   .header-right {
     width: 1.24rem;
     float: right;
+    color: #fff;
   }
 }
 </style>

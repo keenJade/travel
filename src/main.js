@@ -7,6 +7,7 @@ import router from './router'
 import fastClick from 'fastclick'
 // 轮播图vue-awesome-swiper --save
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+// better-scroll 移动端滚动
 import './assets/styles/reset.css'
 // 移动端1像素的问题
 import './assets/styles/border.css'
