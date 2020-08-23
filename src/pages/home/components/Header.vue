@@ -10,7 +10,10 @@
 </template>
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 <style scoped lang='stylus'>
