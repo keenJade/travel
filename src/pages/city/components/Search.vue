@@ -20,6 +20,7 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Search',
   props: {
@@ -68,9 +69,11 @@ export default {
       // 使用vuex进行页面间的传值
       // this.$store.dispatch('changeCity', city)
       // 没有异步操作的时候，不使用actions时，可以通过commit来实现
-      this.$store.commit('changeCity', city)
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>

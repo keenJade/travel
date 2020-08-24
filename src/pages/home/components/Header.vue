@@ -6,21 +6,27 @@
     <div class="header-input">
       <span class='iconfont'>&#xe67d;</span>请输入城市/经典/主题选择</div>
     <router-link to='/city'>
-     <div class="header-right">{{this.$store.state.city}}<span class='iconfont icon3'>&#xe688;</span></div>
+     <!-- <div class="header-right">{{this.$store.state.city}}<span class='iconfont icon3'>&#xe688;</span></div> -->
+     <!-- <div class="header-right">{{this.city}}<span class='iconfont icon3'>&#xe688;</span></div> -->
+     <div class="header-right">{{this.doubleCity}}<span class='iconfont icon3'>&#xe688;</span></div>
     </router-link>
   </div>
 </template>
 <script>
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    // 展开运算符...  mapstate把vuex中的city映射到当前组件中
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
 <style scoped lang='stylus'>
 // 在css中使用@引用是需要添加~
 @import '~style/varibles.styl';
+@import '~style/mixins.styl';
 .header {
   display: flex;
   height: $headerHeight;
@@ -46,9 +52,11 @@ export default {
   }
 
   .header-right {
-    width: 1.24rem;
+    min-width: 1.04rem;
+    padding: 0.1rem;
     float: right;
     color: #fff;
+    ellipsis()
   }
 }
 </style>

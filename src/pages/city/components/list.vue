@@ -5,7 +5,8 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{this.$store.state.city}}</div>
+            <!-- <div class="button">{{this.$store.state.city}}</div> -->
+            <div class="button">{{this.currentCity}}</div>
           </div>
         </div>
       </div>
@@ -38,6 +39,7 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -45,15 +47,24 @@ export default {
     hotCities: Array,
     letter: String
   },
+  computed: {
+    // 传值内容可以使对象也可以是数组 vuex中的city映射到当前组叫currentCity
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
   methods: {
     handleCity (city) {
       // console.info(city)
       // 使用vuex进行页面间的传值
       // this.$store.dispatch('changeCity', city)
-      // 没有异步操作的时候，不使用actions时，可以通过commit来实现
-      this.$store.commit('changeCity', city)
+      // 1-----没有异步操作的时候，不使用actions时，可以通过commit来实现
+      // this.$store.commit('changeCity', city)
+      // 2----如果使用了mapMutations,则不用使用上面的方法，直接使用
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
