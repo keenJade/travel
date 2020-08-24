@@ -62,7 +62,7 @@ export default {
         ellipsis()
       .item-desc
         line-height .4rem
-        color @ccc
+        color #ccc
         ellipsis()
       .item-button
         background #ff9300

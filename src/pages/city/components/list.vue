@@ -12,50 +12,22 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
+          <div class="button-wrapper" v-for='item of hotCities'
+              :key='item.id'>
+            <div class="button"
+              >{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
+      <!-- 如果循环的值是一个对象，则循环的第二项不是index,二十key值
+          将key值直接赋值给分组的位置，然后进行内部的循环,内部的of后面跟着
+          第一次循环的item -->
+          <!-- 添加ref为传入的值做准备 -->
+      <div class="area" v-for='(item, key) of cities' :key='key' :ref='key'>
+        <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-        </div>
-        <div class="title border-topbottom">B</div>
-        <div class="item-list">
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-        </div>
-        <div class="title border-topbottom">C</div>
-        <div class="item-list">
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
-          <div class='item border-bottom'>阿拉尔</div>
+          <div class='item border-bottom'
+            v-for='innerItem of item' :key='innerItem.id'>{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -66,9 +38,26 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
-  mounted() {
+  props: {
+    cities: Object,
+    hotCities: Array,
+    letter: String
+  },
+  mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
+  // 监听传过来的值letter的变化，然后做处理
+  watch: {
+    letter () {
+      // console.log(this.letter)
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        // 参数使用的必须是一个元素
+        this.scroll.scrollToElement(element)
+      }
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

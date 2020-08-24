@@ -9,7 +9,6 @@
         <div class='item-info'>
           <p class='item-title'>{{item.title}}</p>
           <p class='item-desc'>{{item.desc}} </p>
-          <button class='item-button'>查看详情</button>
         </div>
       </li>
     </ul>
@@ -23,13 +22,19 @@ export default {
       recommed: [
         {
           id: 1,
-          imgUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922290090,3177876335&fm=26&gp=0.jpg',
+          imgUrl: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3238317745,514710292&fm=26&gp=0.jpg',
           title: 'this is title one',
           desc: 'this is desc two'
         },
         {
           id: 2,
-          imgUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922290090,3177876335&fm=26&gp=0.jpg',
+          imgUrl: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3238317745,514710292&fm=26&gp=0.jpg',
+          title: 'this is title one',
+          desc: 'this is desc two'
+        },
+        {
+          id: 3,
+          imgUrl: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3238317745,514710292&fm=26&gp=0.jpg',
           title: 'this is title one',
           desc: 'this is desc two'
         }
@@ -47,12 +52,16 @@ export default {
     text-indent .2rem
   .item
     display flex
-    height 1.9rem
+    flex-direction column
+    // height 1.9rem
     overflow hidden
-    .item-img
-      width 1.7rem
-      height 1.7rem
+    .item-img-wrapper
+      width 100vw
       padding .1rem
+      box-sizing border-box
+    .item-img
+      height 1.7rem
+      width 100%
     .item-info
       flex 1
       padding .1rem
@@ -62,13 +71,6 @@ export default {
         ellipsis()
       .item-desc
         line-height .4rem
-        color @ccc
+        color #ccc
         ellipsis()
-      .item-button
-        background #ff9300
-        padding .1rem
-        font-size .12rem
-        border-radius .06rem
-        color #fff
-        line-height .44rem
 </style>

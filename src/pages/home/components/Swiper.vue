@@ -1,6 +1,6 @@
 <template>
 <!-- 通过v-if='swier.length' 当轮播数组不为空的时候在渲染页面 -->
-  <swiper :options="swiperOption" ref="mySwiper" >
+  <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
     <swiper-slide>I'm Slide 1</swiper-slide>
     <swiper-slide>I'm Slide 2</swiper-slide>
@@ -30,7 +30,7 @@ export default {
     }
   },
   mounted () {
-    console.log('this is current swiper instance object', this.swiper)
+    // console.log('this is current swiper instance object', this.swiper)
     this.swiper.slideTo(3, 1000, false)
   }
 }
