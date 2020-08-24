@@ -9,7 +9,8 @@
     </div>
     <div class="search-content" ref='search' v-show='keyword'>
       <ul>
-        <li class='search-item border-bottom' v-for='item of list' :key='item.id'>{{item.name}}</li>
+        <li class='search-item border-bottom' v-for='item of list' :key='item.id'
+        @click='handleCity(item.name)'>{{item.name}}</li>
         <li class='search-item border-bottom' v-show='hasNoData'>
           没有找到匹配数据
         </li>
@@ -60,6 +61,16 @@ export default {
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.search)
+  },
+  methods: {
+    handleCity (city) {
+      // console.info(city)
+      // 使用vuex进行页面间的传值
+      // this.$store.dispatch('changeCity', city)
+      // 没有异步操作的时候，不使用actions时，可以通过commit来实现
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
   }
 }
 </script>

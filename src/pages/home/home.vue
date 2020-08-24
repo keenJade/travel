@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city='city'/>
+    <home-header/>
     <home-swiper />
     <home-icons />
     <home-recommed />
@@ -25,7 +25,6 @@ export default {
   },
   data () {
     return {
-      city: ''
     }
   },
   mounted () {

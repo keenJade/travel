@@ -6,7 +6,7 @@
     <div class="header-input">
       <span class='iconfont'>&#xe67d;</span>请输入城市/经典/主题选择</div>
     <router-link to='/city'>
-     <div class="header-right">城市<span class='iconfont icon3'>&#xe688;</span></div>
+     <div class="header-right">{{this.$store.state.city}}<span class='iconfont icon3'>&#xe688;</span></div>
     </router-link>
   </div>
 </template>
