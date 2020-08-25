@@ -1,13 +1,13 @@
 <template>
  <div>
     <div class='banner' @click='handleShowGalary'>
-    <img class='banner-img' src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2003485950,586690726&fm=26&gp=0.jpg" alt="" />
+    <img class='banner-img' :src="titleImg" alt="" />
     <div class="banner-info">
       <div class='banner-title'>this is tis djkj </div>
       <div class='banner-number'><span class='iconfont'>&#xe67d;</span>39</div>
     </div>
   </div>
-  <common-gallary :imgs='imgs' v-show='showGallay' @close='handleGallaryClose'/>
+  <common-gallary :imgs='gallaryImgs' v-show='showGallay' @close='handleGallaryClose'/>
  </div>
 </template>
 
@@ -15,17 +15,16 @@
 import CommonGallary from 'common/gallary/gallary'
 export default {
   name: 'DetailBanner',
+  props: {
+    titleImg: String,
+    gallaryImgs: Array
+  },
   components: {
     CommonGallary
   },
   data () {
     return {
-      showGallay: false,
-      imgs: [
-        'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3034917385,2523734012&fm=26&gp=0.jpg',
-        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3392816833,1391936663&fm=26&gp=0.jpg',
-        'https://ns-strategy.cdn.bcebos.com/ns-strategy/upload/fc_big_pic/part-00313-2159.jpg'
-      ]
+      showGallay: false
     }
   },
   methods: {
