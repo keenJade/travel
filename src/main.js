@@ -14,6 +14,9 @@ import './assets/styles/reset.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+// babel-polyfill --save
+// 解决问题：访问页面白屏 浏览器不支持promise  会使得页面空白
+import 'babel-polyfill'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
