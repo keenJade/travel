@@ -7,12 +7,15 @@
       <div class='banner-number'><span class='iconfont'>&#xe67d;</span>39</div>
     </div>
   </div>
-  <common-gallary :imgs='gallaryImgs' v-show='showGallay' @close='handleGallaryClose'/>
+  <fade>
+    <common-gallary :imgs='gallaryImgs' v-show='showGallay' @close='handleGallaryClose'/>
+  </fade>
  </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/gallary'
+import Fade from 'common/fade/fade'
 export default {
   name: 'DetailBanner',
   props: {
@@ -20,7 +23,8 @@ export default {
     gallaryImgs: Array
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    Fade
   },
   data () {
     return {
