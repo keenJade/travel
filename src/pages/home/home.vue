@@ -44,7 +44,7 @@ export default {
         .then(this.getHomeInnfoSucc)
     },
     getHomeInnfoSucc (res) {
-      console.log(res)
+      // console.log(res)
     }
   },
   // 使用keep-alive的时候会有一个activated的生命周期
